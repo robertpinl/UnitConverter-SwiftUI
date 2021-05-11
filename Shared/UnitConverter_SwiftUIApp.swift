@@ -2,7 +2,7 @@
 //  UnitConverter_SwiftUIApp.swift
 //  Shared
 //
-//  Created by Robert P on 29.04.2021.
+//  Created by Robert Pinl on 29.04.2021.
 //
 
 import SwiftUI

@@ -2,7 +2,7 @@
 //  ConverterService.swift
 //  UnitConverter-SwiftUI
 //
-//  Created by Robert P on 11.05.2021.
+//  Created by Robert Pinl on 11.05.2021.
 //
 
 import Foundation
@@ -26,9 +26,11 @@ class ConverterService: ObservableObject {
         case .volume:
             return [UnitVolume.megaliters, UnitVolume.kiloliters, UnitVolume.liters, UnitVolume.deciliters, UnitVolume.centiliters, UnitVolume.milliliters, UnitVolume.cubicKilometers, UnitVolume.cubicKilometers, UnitVolume.cubicMeters, UnitVolume.cubicDecimeters, UnitVolume.cubicCentimeters, UnitVolume.cubicMillimeters, UnitVolume.cubicInches, UnitVolume.cubicFeet, UnitVolume.cubicYards, UnitVolume.cubicMiles, UnitVolume.acreFeet, UnitVolume.bushels, UnitVolume.teaspoons, UnitVolume.tablespoons, UnitVolume.fluidOunces, UnitVolume.cups, UnitVolume.pints, UnitVolume.quarts, UnitVolume.gallons, UnitVolume.imperialTeaspoons, UnitVolume.imperialTablespoons, UnitVolume.imperialFluidOunces, UnitVolume.imperialPints, UnitVolume.imperialQuarts, UnitVolume.imperialGallons, UnitVolume.metricCups]
             
-        case .weight:
+        case .mass:
             return [UnitMass.kilograms, UnitMass.grams, UnitMass.decigrams, UnitMass.centigrams, UnitMass.milligrams, UnitMass.micrograms, UnitMass.nanograms, UnitMass.picograms, UnitMass.ounces, UnitMass.pounds, UnitMass.stones, UnitMass.metricTons, UnitMass.shortTons, UnitMass.carats, UnitMass.ouncesTroy, UnitMass.slugs]
             
+        case .angle:
+            return [UnitAngle.degrees, UnitAngle.arcMinutes, UnitAngle.arcSeconds, UnitAngle.radians, UnitAngle.gradians, UnitAngle.revolutions]
         }
     }
     
@@ -44,8 +46,10 @@ class ConverterService: ObservableObject {
             return convertTemperature(value: value, unit1: unit1 as! UnitTemperature, unit2: unit2 as! UnitTemperature)
         case .volume:
             return convertVolume(value: value, unit1: unit1 as! UnitVolume, unit2: unit2 as! UnitVolume)
-        case .weight:
-            return ConvertWeight(value: value, unit1: unit1 as! UnitMass, unit2: unit2 as! UnitMass)
+        case .mass:
+            return convertMass(value: value, unit1: unit1 as! UnitMass, unit2: unit2 as! UnitMass)
+        case .angle:
+            return convertAngle(value: value, unit1: unit1 as! UnitAngle, unit2: unit2 as! UnitAngle)
         }
     }
     
@@ -69,7 +73,11 @@ class ConverterService: ObservableObject {
         return Measurement(value: Double(value) ?? 0.0, unit: unit1).converted(to: unit2).value
     }
     
-    func ConvertWeight(value: String, unit1: UnitMass, unit2: UnitMass) -> Double {
+    func convertMass(value: String, unit1: UnitMass, unit2: UnitMass) -> Double {
+        return Measurement(value: Double(value) ?? 0.0, unit: unit1).converted(to: unit2).value
+    }
+    
+    func convertAngle(value: String, unit1: UnitAngle, unit2: UnitAngle) -> Double {
         return Measurement(value: Double(value) ?? 0.0, unit: unit1).converted(to: unit2).value
     }
 }

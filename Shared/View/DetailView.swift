@@ -2,7 +2,7 @@
 //  DetailView.swift
 //  UnitConverter-SwiftUI
 //
-//  Created by Robert P on 11.05.2021.
+//  Created by Robert Pinl on 11.05.2021.
 //
 
 import SwiftUI
@@ -16,7 +16,7 @@ struct DetailView: View {
     @State var firstUnit = 0
     @State private var firstUnitValue = ""
     
-    @State var secondUnit = 0
+    @State var secondUnit = 1
     @State private var secondUnitValue = ""
     
     @StateObject var converter = ConverterService()
@@ -24,27 +24,39 @@ struct DetailView: View {
     var body: some View {
         Form {
             Section {
-                Picker("Select Unit", selection: $firstUnit) {
+                Picker("Convert", selection: $firstUnit) {
                     ForEach(0 ..< units.count, id: \.self) { unit in
                         Text("\(units[unit].symbol)")
                     }
                 }
-                TextField("Enter value", text: $firstUnitValue)
+                Picker("To", selection: $secondUnit) {
+                    ForEach(0 ..< units.count, id: \.self) { Text("\(units[$0].symbol)") }
+                }
+            }
+            
+            Section {
+                Text("Value")
+                    .font(.headline)
+                TextField("Enter", text: $firstUnitValue)
                     .keyboardType(.decimalPad)
             }
             Section {
-                Picker("Select Unit", selection: $secondUnit) {
-                    ForEach(0 ..< units.count, id: \.self) { Text("\(units[$0].symbol)") }
-                }
+                Text("Result")
+                    .font(.headline)
                 Text("\(converter.convert(category: category, value: firstUnitValue, unit1: units[firstUnit], unit2: units[secondUnit]), specifier: "%g")")
             }
         }
         .navigationTitle(category.rawValue)
+        .navigationBarItems(trailing: Button(action: {
+            hideKeyboard()
+        }, label: {
+            Image(systemName: "keyboard.chevron.compact.down")
+        }))
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(category: .area, units: [UnitLength.millimeters, UnitLength.centimeters, UnitLength.decimeters, UnitLength.meters])
+        DetailView(category: .temperature, units: [UnitTemperature.celsius, UnitTemperature.fahrenheit, UnitTemperature.kelvin])
     }
 }

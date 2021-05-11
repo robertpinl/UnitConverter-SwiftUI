@@ -2,51 +2,46 @@
 //  CategorySelectionView.swift
 //  Shared
 //
-//  Created by Robert P on 29.04.2021.
+//  Created by Robert Pinl on 29.04.2021.
 //
 
 import SwiftUI
 
-enum category: String {
-    case lenght = "Lenght"
-    case weight = "Weight"
-    case area = "Area"
-    case volume = "Volume"
-    case temperature = "Temperature"
-    case pressure = "Pressure"
-}
-
 struct CategorySelectionView: View {
     
-    @StateObject var units = ConverterService()
+    @StateObject var converter = ConverterService()
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    NavigationLink(destination: DetailView(category: .weight, units: units.selectUnit(category: .weight))) {
-                        Image(systemName: "thermometer")
-                        Text("\(category.weight.rawValue)")
+                    NavigationLink(destination: DetailView(category: .mass, units: converter.selectUnit(category: .mass))) {
+                        Image(systemName: "case")
+                        Text("\(category.mass.rawValue)")
                     }
-                    NavigationLink(destination: DetailView(category: .lenght, units: units.selectUnit(category: .lenght))) {
-                        Image(systemName: "thermometer")
+                    NavigationLink(destination: DetailView(category: .lenght, units: converter.selectUnit(category: .lenght))) {
+                        Image(systemName: "ruler")
                         Text("\(category.lenght.rawValue)")
                     }
-                    NavigationLink(destination: DetailView(category: .area, units: units.selectUnit(category: .area))) {
-                        Image(systemName: "thermometer")
+                    NavigationLink(destination: DetailView(category: .area, units: converter.selectUnit(category: .area))) {
+                        Image(systemName: "map")
                         Text("\(category.area.rawValue)")
                     }
-                    NavigationLink(destination: DetailView(category: .volume, units: units.selectUnit(category: .volume))) {
-                        Image(systemName: "thermometer")
+                    NavigationLink(destination: DetailView(category: .volume, units: converter.selectUnit(category: .volume))) {
+                        Image(systemName: "cube")
                         Text("\(category.volume.rawValue)")
                     }
-                    NavigationLink(destination: DetailView(category: .pressure, units: units.selectUnit(category: .pressure))) {
-                        Image(systemName: "thermometer")
+                    NavigationLink(destination: DetailView(category: .pressure, units: converter.selectUnit(category: .pressure))) {
+                        Image(systemName: "hammer")
                         Text("\(category.pressure.rawValue)")
                     }
-                    NavigationLink(destination: DetailView(category: .temperature, units: units.selectUnit(category: .temperature))) {
+                    NavigationLink(destination: DetailView(category: .temperature, units: converter.selectUnit(category: .temperature))) {
                         Image(systemName: "thermometer")
                         Text("\(category.temperature.rawValue)")
+                    }
+                    NavigationLink(destination: DetailView(category: .angle, units: converter.selectUnit(category: .angle))) {
+                        Image(systemName: "pyramid")
+                        Text("\(category.angle.rawValue)")
                     }
                 }
             }
