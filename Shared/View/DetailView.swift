@@ -25,9 +25,11 @@ struct DetailView: View {
         Form {
             Section {
                 Picker("Select Unit", selection: $firstUnit) {
-                    ForEach(0 ..< units.count, id: \.self) { Text("\(units[$0].symbol)") }
+                    ForEach(0 ..< units.count, id: \.self) { unit in
+                        Text("\(units[unit].symbol)")
+                    }
                 }
-                TextField("Value", text: $firstUnitValue)
+                TextField("Enter value", text: $firstUnitValue)
                     .keyboardType(.decimalPad)
             }
             Section {
