@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     var category: category
-    
+    var info: String
     var units: [Unit]
     
     @State var firstUnit = 0
@@ -24,10 +24,10 @@ struct DetailView: View {
     var body: some View {
         Form {
             Section {
+                Text("Select units")
+                    .font(.headline)
                 Picker("Convert", selection: $firstUnit) {
-                    ForEach(0 ..< units.count, id: \.self) { unit in
-                        Text("\(units[unit].symbol)")
-                    }
+                    ForEach(0 ..< units.count, id: \.self) { Text("\(units[$0].symbol)") }
                 }
                 Picker("To", selection: $secondUnit) {
                     ForEach(0 ..< units.count, id: \.self) { Text("\(units[$0].symbol)") }
@@ -57,6 +57,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(category: .temperature, units: [UnitTemperature.celsius, UnitTemperature.fahrenheit, UnitTemperature.kelvin])
+        DetailView(category: .temperature, info: "", units: [UnitTemperature.celsius, UnitTemperature.fahrenheit, UnitTemperature.kelvin])
     }
 }

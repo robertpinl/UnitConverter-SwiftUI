@@ -9,7 +9,6 @@ import Foundation
 
 class ConverterService: ObservableObject {
     func selectUnit(category: category) -> [Unit] {
-        
         switch category {
         case .area:
             return [UnitArea.squareMegameters, UnitArea.squareKilometers, UnitArea.squareMeters, UnitArea.squareCentimeters, UnitArea.squareMillimeters, UnitArea.squareNanometers, UnitArea.squareInches, UnitArea.squareFeet, UnitArea.squareYards, UnitArea.squareMiles, UnitArea.acres, UnitArea.ares, UnitArea.hectares]
@@ -31,6 +30,33 @@ class ConverterService: ObservableObject {
             
         case .angle:
             return [UnitAngle.degrees, UnitAngle.arcMinutes, UnitAngle.arcSeconds, UnitAngle.radians, UnitAngle.gradians, UnitAngle.revolutions]
+        case .speed:
+            return [UnitSpeed.metersPerSecond, UnitSpeed.kilometersPerHour, UnitSpeed.milesPerHour, UnitSpeed.knots, UnitSpeed.milesPerHour]
+        case .duration:
+            return [UnitDuration.hours, UnitDuration.minutes, UnitDuration.seconds, UnitDuration.milliseconds, UnitDuration.microseconds, UnitDuration.nanoseconds, UnitDuration.nanoseconds, UnitDuration.picoseconds]
+        }
+    }
+    
+    func getInfo(categoty: category) -> String {
+        switch categoty {
+        case .angle:
+            return ""
+        case .lenght:
+            return ""
+        case .mass:
+            return ""
+        case .area:
+            return ""
+        case .volume:
+            return ""
+        case .temperature:
+            return ""
+        case .pressure:
+            return ""
+        case .speed:
+            return ""
+        case .duration:
+            return ""
         }
     }
     
@@ -50,6 +76,10 @@ class ConverterService: ObservableObject {
             return convertMass(value: value, unit1: unit1 as! UnitMass, unit2: unit2 as! UnitMass)
         case .angle:
             return convertAngle(value: value, unit1: unit1 as! UnitAngle, unit2: unit2 as! UnitAngle)
+        case .speed:
+            return convertSpeed(value: value, unit1: unit1 as! UnitSpeed, unit2: unit2 as! UnitSpeed)
+        case .duration:
+            return convertDuration(value: value, unit1: unit1 as! UnitDuration, unit2: unit2 as! UnitDuration)
         }
     }
     
@@ -78,6 +108,12 @@ class ConverterService: ObservableObject {
     }
     
     func convertAngle(value: String, unit1: UnitAngle, unit2: UnitAngle) -> Double {
+        return Measurement(value: Double(value) ?? 0.0, unit: unit1).converted(to: unit2).value
+    }
+    func convertSpeed(value: String, unit1: UnitSpeed, unit2: UnitSpeed) -> Double {
+        return Measurement(value: Double(value) ?? 0.0, unit: unit1).converted(to: unit2).value
+    }
+    func convertDuration(value: String, unit1: UnitDuration, unit2: UnitDuration) -> Double {
         return Measurement(value: Double(value) ?? 0.0, unit: unit1).converted(to: unit2).value
     }
 }

@@ -15,4 +15,6 @@ enum category: String {
     case temperature = "Temperature"
     case pressure = "Pressure"
     case angle = "Angle"
+    case speed = "Speed"
+    case duration = "Duration"
 }

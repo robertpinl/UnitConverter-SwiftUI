@@ -77,7 +77,7 @@
 				D4029950263B2F5E0027A92B /* UnitConverter_SwiftUIApp.swift */,
 				D45DB11D264AC757001B4159 /* Model */,
 				D45DB115264ABDF5001B4159 /* View */,
-				D45DB117264ABE92001B4159 /* Service */,
+				D45DB117264ABE92001B4159 /* ViewModel */,
 				D4EC7C68264ADE170089013E /* Extensions */,
 				D4029952263B2F5F0027A92B /* Assets.xcassets */,
 			);
@@ -121,12 +121,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		D45DB117264ABE92001B4159 /* Service */ = {
+		D45DB117264ABE92001B4159 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				D45DB112264A8916001B4159 /* ConverterService.swift */,
 			);
-			path = Service;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		D45DB11D264AC757001B4159 /* Model */ = {
