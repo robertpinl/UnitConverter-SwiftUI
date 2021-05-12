@@ -18,6 +18,10 @@
 		D45DB113264A8916001B4159 /* ConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45DB112264A8916001B4159 /* ConverterService.swift */; };
 		D45DB114264A8916001B4159 /* ConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45DB112264A8916001B4159 /* ConverterService.swift */; };
 		D45DB11C264AC74F001B4159 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45DB11B264AC74F001B4159 /* CategoryModel.swift */; };
+		D4728FF3264BCC5000EC07BC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4728FF2264BCC5000EC07BC /* MainView.swift */; };
+		D4728FF4264BCC5000EC07BC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4728FF2264BCC5000EC07BC /* MainView.swift */; };
+		D4728FF6264BD0F000EC07BC /* CategorySelectionSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4728FF5264BD0F000EC07BC /* CategorySelectionSidebarView.swift */; };
+		D4728FF7264BD0F000EC07BC /* CategorySelectionSidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4728FF5264BD0F000EC07BC /* CategorySelectionSidebarView.swift */; };
 		D4EC7C66264ADE110089013E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7C65264ADE110089013E /* View+Extensions.swift */; };
 		D4EC7C67264ADE110089013E /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7C65264ADE110089013E /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +38,8 @@
 		D45DB10C264A7DB2001B4159 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		D45DB112264A8916001B4159 /* ConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterService.swift; sourceTree = "<group>"; };
 		D45DB11B264AC74F001B4159 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		D4728FF2264BCC5000EC07BC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		D4728FF5264BD0F000EC07BC /* CategorySelectionSidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionSidebarView.swift; sourceTree = "<group>"; };
 		D4EC7C65264ADE110089013E /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,11 +74,11 @@
 		D402994F263B2F5E0027A92B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D4029950263B2F5E0027A92B /* UnitConverter_SwiftUIApp.swift */,
 				D45DB11D264AC757001B4159 /* Model */,
 				D45DB115264ABDF5001B4159 /* View */,
 				D45DB117264ABE92001B4159 /* Service */,
 				D4EC7C68264ADE170089013E /* Extensions */,
-				D4029950263B2F5E0027A92B /* UnitConverter_SwiftUIApp.swift */,
 				D4029952263B2F5F0027A92B /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -107,6 +113,8 @@
 		D45DB115264ABDF5001B4159 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D4728FF2264BCC5000EC07BC /* MainView.swift */,
+				D4728FF5264BD0F000EC07BC /* CategorySelectionSidebarView.swift */,
 				D4029951263B2F5E0027A92B /* CategorySelectionView.swift */,
 				D45DB10C264A7DB2001B4159 /* DetailView.swift */,
 			);
@@ -235,6 +243,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4029965263B2F5F0027A92B /* CategorySelectionView.swift in Sources */,
+				D4728FF3264BCC5000EC07BC /* MainView.swift in Sources */,
+				D4728FF6264BD0F000EC07BC /* CategorySelectionSidebarView.swift in Sources */,
 				D45DB10D264A7DB2001B4159 /* DetailView.swift in Sources */,
 				D4029963263B2F5F0027A92B /* UnitConverter_SwiftUIApp.swift in Sources */,
 				D45DB11C264AC74F001B4159 /* CategoryModel.swift in Sources */,
@@ -247,7 +257,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4728FF7264BD0F000EC07BC /* CategorySelectionSidebarView.swift in Sources */,
 				D4029966263B2F5F0027A92B /* CategorySelectionView.swift in Sources */,
+				D4728FF4264BCC5000EC07BC /* MainView.swift in Sources */,
 				D45DB10E264A7DB2001B4159 /* DetailView.swift in Sources */,
 				D4029964263B2F5F0027A92B /* UnitConverter_SwiftUIApp.swift in Sources */,
 				D4EC7C67264ADE110089013E /* View+Extensions.swift in Sources */,
