@@ -10,7 +10,6 @@ import SwiftUI
 struct DetailView: View {
     
     var category: category
-    var info: String
     var units: [Unit]
     
     @State var firstUnit = 0
@@ -19,7 +18,11 @@ struct DetailView: View {
     @State var secondUnit = 1
     @State private var secondUnitValue = ""
     
-    @StateObject var converter = ConverterService()
+    @State private var showingInfo = false
+    
+    @StateObject var converterVM = ConverterViewModel()
+    @StateObject var categoryVM = CategoryViewModel()
+
     
     var body: some View {
         Form {
@@ -43,20 +46,32 @@ struct DetailView: View {
             Section {
                 Text("Result")
                     .font(.headline)
-                Text("\(converter.convert(category: category, value: firstUnitValue, unit1: units[firstUnit], unit2: units[secondUnit]), specifier: "%g")")
+                Text("\(converterVM.convert(category: category, value: firstUnitValue, unit1: units[firstUnit], unit2: units[secondUnit]), specifier: "%g")")
             }
         }
+        .sheet(isPresented: $showingInfo, content: {
+            InfoView(category: category.rawValue, info: categoryVM.getInfo(categoty: category))
+        })
         .navigationTitle(category.rawValue)
-        .navigationBarItems(trailing: Button(action: {
-            hideKeyboard()
-        }, label: {
-            Image(systemName: "keyboard.chevron.compact.down")
-        }))
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button(action: {
+                    hideKeyboard()
+                }, label: {
+                    Image(systemName: "keyboard.chevron.compact.down")
+                })
+                Button(action: {
+                    showingInfo = true
+                }, label: {
+                    Image(systemName: "info.circle")
+                })
+            }
+        }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(category: .temperature, info: "", units: [UnitTemperature.celsius, UnitTemperature.fahrenheit, UnitTemperature.kelvin])
+        DetailView(category: .temperature, units: [UnitTemperature.celsius, UnitTemperature.fahrenheit, UnitTemperature.kelvin])
     }
 }
