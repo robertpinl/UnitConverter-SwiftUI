@@ -4,4 +4,4 @@ Unit converter created in SwiftUI. Convert all kinds of standard units of measur
 * MVVM Design Pattern
 * Swift Measurement Unit Conversion
 
-<img src="https://github.com/robertpinl/MyCoffee/blob/main/ReadmeAssets/UnitConverterScreenshot.png" width="" height="450"/>
+<img src="https://github.com/robertpinl/UnitConverter/blob/main/ReadmeAssets/UnitConverterScreenshot.png" width="" height="450"/>
