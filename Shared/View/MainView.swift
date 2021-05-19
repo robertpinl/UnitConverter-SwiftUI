@@ -2,7 +2,7 @@
 //  MainView.swift
 //  UnitConverter-SwiftUI
 //
-//  Created by Robert P on 12.05.2021.
+//  Created by Robert Pinl on 12.05.2021.
 //
 
 import SwiftUI

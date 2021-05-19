@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CategorySelectionView: View {
     
-//    @StateObject var converterVM = ConverterViewModel()
     @StateObject var categoryVM = CategoryViewModel()
     
     var body: some View {
