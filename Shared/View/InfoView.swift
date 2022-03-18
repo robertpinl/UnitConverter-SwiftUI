@@ -14,10 +14,15 @@ struct InfoView: View {
     
     var body: some View {
         VStack {
-            Text(category.rawValue)
-                .font(.title2)
-                .bold()
-                .padding(.top, 75)
+            HStack {
+                Image(systemName: CategoryManager.getIcon(category: category))
+                    .foregroundColor(.blue)
+                Text(category.rawValue)
+                    .font(.title2)
+                    .bold()
+            }
+            .padding(.top, 75)
+
             Text(CategoryManager.getInfo(categoty: category))
                 .padding(20)
             Spacer()
@@ -29,11 +34,11 @@ struct InfoView: View {
                     .font(.headline)
                     .bold()
                     .foregroundColor(.white)
-                    .frame(width: 220, height: 50)
+                    .frame(width: 280, height: 44)
                     .background(Color.blue)
                     .cornerRadius(12)
             })
-            .padding(.bottom, 55)
+                .padding(.bottom, 55)
         }
     }
 }

@@ -9,30 +9,6 @@ import Foundation
 
 class CategoryManager {
     
-    
-//    static func getUnitType(category: Category) -> Unit.Type {
-//        switch category {
-//        case .mass:
-//            return UnitMass.self
-//        case .lenght:
-//            return UnitLength.self
-//        case .area:
-//            return UnitArea.self
-//        case .volume:
-//            return UnitVolume.self
-//        case .pressure:
-//            return UnitPressure.self
-//        case .temperature:
-//            return UnitTemperature.self
-//        case .angle:
-//            return UnitArea.self
-//        case .speed:
-//            return UnitSpeed.self
-//        case .duration:
-//            return UnitDuration.self
-//        }
-//    }
-    
     static func getIcon(category: Category) -> String {
         switch category {
         case .lenght:
