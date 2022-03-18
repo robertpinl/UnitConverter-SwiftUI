@@ -7,13 +7,13 @@
 
 import Foundation
 
-enum category: String {
-    case lenght = "Lenght"
+enum Category: String, CaseIterable {
     case mass = "Mass"
+    case lenght = "Lenght"
     case area = "Area"
     case volume = "Volume"
-    case temperature = "Temperature"
     case pressure = "Pressure"
+    case temperature = "Temperature"
     case angle = "Angle"
     case speed = "Speed"
     case duration = "Duration"

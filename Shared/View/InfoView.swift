@@ -9,26 +9,21 @@ import SwiftUI
 
 struct InfoView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-
-    @StateObject private var detailVM = DetailViewModel()
-    
-    var category: String
-    var info: String
+    @Environment(\.dismiss) var dismiss
+    var category: Category
     
     var body: some View {
         VStack {
-            Text(category)
+            Text(category.rawValue)
                 .font(.title2)
                 .bold()
                 .padding(.top, 75)
-            Text(info)
+            Text(CategoryManager.getInfo(categoty: category))
                 .padding(20)
             Spacer()
             
             Button(action: {
-                presentationMode.wrappedValue.dismiss()
-                
+                dismiss()
             }, label: {
                 Text("OK")
                     .font(.headline)
@@ -45,6 +40,6 @@ struct InfoView: View {
 
 struct InfoView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoView(category: "Angle", info: "Angle is a quantity of rotation. The SI unit for angle is the radian (rad), which is dimensionless and defined to be the the angle subtended by an arc that is equal in length to the radius of a circle. Angle is also commonly expressed in terms of degrees (°) and revolutions (rev).")
+        InfoView(category: .mass)
     }
 }

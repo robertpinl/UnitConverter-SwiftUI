@@ -11,7 +11,11 @@ import SwiftUI
 struct UnitConverter_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
+            #if os(macOS)
+            MainViewMacOS()
+            #else
             MainView()
+            #endif
         }
     }
 }
