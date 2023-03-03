@@ -1,5 +1,8 @@
 # Unit Converter
-Unit converter created in SwiftUI. Convert all kinds of standard units of measurement from one to another.
+
+Unit Converter is a iOS mobile application designed to help users convert different units of measurement effortlessly. Built using the latest SwiftUI framework and MVVM design pattern, this app offers a seamless user experience and efficient code organization.
+
+With Swift Measurement Unit Conversion API, this app offers accurate and reliable conversions for various units such as length, weight, temperature, volume, and more. The app's intuitive user interface allows users to select the input and output units, enter the value to be converted, and instantly view the converted result.
 
 ## Concepts used
 * SwiftUI
